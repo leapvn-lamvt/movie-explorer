@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { CommonModule } from '@angular/common';
+import { Movie } from '../../services/movie.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -10,5 +11,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './movie-list.component.scss'
 })
 export class MovieListComponent {
-  @Input() movies: any[] = [];
+  @Input() movies: Movie[] = [];
 }

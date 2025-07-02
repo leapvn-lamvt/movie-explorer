@@ -3,11 +3,12 @@ import { SearchBarComponent } from '../../components/search-bar/search-bar.compo
 import { MovieListComponent } from '../../components/movie-list/movie-list.component';
 import { MovieService, Movie } from '../../services/movie.service';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../../header/header.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, SearchBarComponent, MovieListComponent],
+  imports: [CommonModule, HeaderComponent, SearchBarComponent, MovieListComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

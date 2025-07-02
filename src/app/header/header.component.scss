@@ -1,0 +1,16 @@
+$primary-color: #343a40; 
+$background-color: #f8f9fa;
+body {
+    background-color: $background-color;
+}
+
+header {
+    background-color: $primary-color;
+    padding: 8px 0;
+    .header-title {
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 0;
+    }
+}

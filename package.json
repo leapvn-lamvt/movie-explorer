@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:movie-explorer": "node dist/movie-explorer/server/server.mjs"
+    "serve:ssr:movie-explorer": "node dist/movie-explorer/server/server.mjs",
+    "generate-env": "node scripts/generate-env.js"
   },
   "private": true,
   "dependencies": {

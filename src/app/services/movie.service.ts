@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 export interface Movie {
   Title: string;
@@ -21,8 +22,8 @@ export interface SearchResponse {
   providedIn: 'root'
 })
 export class MovieService {
-  private readonly API_KEY = '84792afa';
-  private readonly BASE_URL = 'https://www.omdbapi.com/';
+  private readonly API_KEY = environment.omdbApiKey;
+  private readonly BASE_URL = environment.omdbBaseUrl;
 
   constructor(private http: HttpClient) {}
 

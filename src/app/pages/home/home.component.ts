@@ -3,7 +3,7 @@ import { SearchBarComponent } from '../../components/search-bar/search-bar.compo
 import { MovieListComponent } from '../../components/movie-list/movie-list.component';
 import { MovieService, Movie } from '../../services/movie.service';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../../header/header.component';
+import { HeaderComponent } from '../../components/header/header.component';
 import { RecentlyReleasedComponent } from '../../components/recently-released/recently-released.component';
 
 @Component({

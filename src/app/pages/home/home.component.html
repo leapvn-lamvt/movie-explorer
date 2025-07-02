@@ -1,0 +1,5 @@
+<div class="container py-5">
+  <h1 class="text-center mb-4">Movie Explorer</h1>
+  <app-search-bar (search)="onSearch($event)"></app-search-bar>
+  <app-movie-list [movies]="searchResults"></app-movie-list>
+</div>

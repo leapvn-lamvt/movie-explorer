@@ -1,0 +1,7 @@
+<div class="card h-100">
+  <img [src]="movie.Poster" class="card-img-top" [alt]="movie.Title" *ngIf="movie.Poster !== 'N/A'">
+  <div class="card-body">
+    <h5 class="card-title">{{ movie.Title }}</h5>
+    <p class="card-text">{{ movie.Year }}</p>
+  </div>
+</div>

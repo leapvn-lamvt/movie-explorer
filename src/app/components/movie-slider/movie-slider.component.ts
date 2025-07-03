@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { Movie, MovieService } from '../../services/movie.service';
+import { Movie } from '../../services/movie.service';
 
 @Component({
   selector: 'app-movie-slider',
@@ -10,7 +10,7 @@ import { Movie, MovieService } from '../../services/movie.service';
   templateUrl: './movie-slider.component.html',
   styleUrl: './movie-slider.component.scss'
 })
-export class MovieSliderComponent implements OnInit {
+export class MovieSliderComponent {
   slideConfig = {
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -35,29 +35,5 @@ export class MovieSliderComponent implements OnInit {
     ]
   };
 
-
-  featuredMovies: Movie[] = [];
-  loading = false;
-  error: string | null = null;
-
-  constructor(private movieService: MovieService) {}
-  
-  ngOnInit() {
-    this.fetchFeaturedMovies();
-  }
-
-  fetchFeaturedMovies() {
-    this.loading = true;
-    this.error = null;
-    this.movieService.searchMovies('2025').subscribe({
-      next: (movies) => {
-        this.featuredMovies = movies.slice(0, 12);
-        this.loading = false;
-      },
-      error: (err) => {
-        this.error = err.message || 'Failed to fetch featured movies.';
-        this.loading = false;
-      }
-    });
-  }
+  @Input() featuredMovies!: Movie[];
 }

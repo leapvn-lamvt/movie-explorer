@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
 import { MovieListComponent } from '../../components/movie-list/movie-list.component';
 import { MovieService, Movie } from '../../services/movie.service';
@@ -14,16 +14,38 @@ import { MovieSliderComponent } from '../../components/movie-slider/movie-slider
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   searchResults: Movie[] = [];
+  featuredMovies: Movie[] = [];
+  recentlyReleasedMovies: Movie[] = [];
+
   loading = false;
   error: string | null = null;
 
   constructor(private movieService: MovieService) {}
 
+  ngOnInit() {
+    this.fetchRecentlyReleased();
+  }
+
+  fetchRecentlyReleased() {
+    this.loading = true;
+    this.error = null;
+    this.movieService.searchMovies('2025').subscribe({
+      next: (movies) => {
+        this.recentlyReleasedMovies = movies.slice(0, 12);
+        this.featuredMovies = movies.slice(0, 24);
+        this.loading = false;
+      },
+      error: (err) => {
+        this.error = err.message || 'Failed to fetch recently released movies.';
+        this.loading = false;
+      }
+    });
+  }
+
   onSearch(query: string) {
     if (!query.trim()) {
-      this.error = 'Please enter a search term';
       return;
     }
 
@@ -35,9 +57,6 @@ export class HomeComponent {
       next: (movies) => {
         this.searchResults = movies;
         this.loading = false;
-        if (movies.length === 0) {
-          this.error = 'No movies found for your search.';
-        }
       },
       error: (error) => {
         this.error = error.message || 'An error occurred while searching for movies.';

@@ -5,6 +5,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { RecentlyReleasedComponent } from '../../components/recently-released/recently-released.component';
 import { MovieSliderComponent } from '../../components/movie-slider/movie-slider.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { SuggestedComponent } from '../../components/suggested/suggested.component';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
     RecentlyReleasedComponent,
     MovieSliderComponent,
     FooterComponent,
+    SuggestedComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

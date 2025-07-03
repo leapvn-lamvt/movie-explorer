@@ -1,7 +1,6 @@
-<div *ngIf="loading">Loading...</div>
-<div *ngIf="error" class="error">{{ error }}</div>
+<div *ngIf="!featuredMovies">Loading...</div>
 
-<ngx-slick-carousel class="carousel" [config]="slideConfig" *ngIf="!loading && featuredMovies.length" >
+<ngx-slick-carousel class="carousel" [config]="slideConfig" *ngIf="featuredMovies && featuredMovies.length" >
   <div ngxSlickItem *ngFor="let movie of featuredMovies" class="slide">
     <img class="slide-img" [src]="movie.Poster" [alt]="movie.Title" />
   </div>

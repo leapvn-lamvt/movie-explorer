@@ -1,13 +1,10 @@
-<section class="recently-released mb-5" *ngIf="movies.length > 0 || loading || error">
+<section class="recently-released mb-5" *ngIf="movies && movies.length > 0">
   <h2 class="mb-4 fw-bold text-white" style="letter-spacing:1px;">Phim mới phát hành</h2>
-  <div *ngIf="loading" class="text-center mb-3">
+  <div *ngIf="!movies" class="text-center mb-3">
     <div class="spinner-border text-primary" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
     <p class="mt-2">Loading recently released movies...</p>
-  </div>
-  <div *ngIf="error && !loading" class="alert alert-warning text-center mb-3" role="alert">
-    {{ error }}
   </div>
   <div class="row justify-content-center">
     <div class="col-md-4 mb-4" *ngFor="let movie of movies">

@@ -12,22 +12,3 @@
     </div>
   </div>
 </div>
-<div class="container py-5">
-  <app-search-bar (search)="onSearch($event)"></app-search-bar>
-  
-  <!-- Loading State -->
-  <div *ngIf="loading" class="text-center">
-    <div class="spinner-border text-primary" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-    <p class="mt-2">Searching for movies...</p>
-  </div>
-
-  <!-- Error State -->
-  <div *ngIf="error && !loading" class="alert alert-warning text-center" role="alert">
-    {{ error }}
-  </div>
-
-  <!-- Results -->
-  <app-movie-list [movies]="searchResults"></app-movie-list>
-</div>

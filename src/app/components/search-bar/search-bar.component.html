@@ -1,8 +1,8 @@
-<form class="row justify-content-center mb-5" (submit)="onSubmit($event)">
-  <div class="col-md-6 col-sm-8 mb-2">
-    <input type="text" class="form-control" placeholder="Search for a movie..." [(ngModel)]="searchQuery" name="searchQuery">
+<form class="row align-items-center justify-content-end" (submit)="onSubmit($event)">
+  <div class="col-md-6 col-sm-8">
+    <input type="text" class="form-control" placeholder="Tìm kiếm phim..." [(ngModel)]="searchQuery" name="searchQuery">
   </div>
-  <div class="col-auto mb-2">
-    <button type="submit" class="btn btn-primary w-100">Search</button>
+  <div class="col-auto">
+    <button type="submit" class="search-btn btn bg-orange text-white w-100">Tìm kiếm <i class="fa-solid fa-magnifying-glass"></i></button>
   </div>
 </form>

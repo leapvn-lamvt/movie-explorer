@@ -27,7 +27,7 @@ header {
 
 .header-nav {
   display: inline-block;
-  margin-left: 32px;
+  margin-left: 24px;
   vertical-align: middle;
   ul {
     list-style: none;
@@ -38,7 +38,7 @@ header {
     height: 100%;
     li {
       position: relative;
-      margin-right: 24px;
+      margin-right: 16px;
       a {
         color: white;
         text-decoration: none;
@@ -60,14 +60,17 @@ header {
           position: absolute;
           top: calc(100%);
           background-color: #23234a;
-          min-width: 160px;
+          min-width: 220px;
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
           z-index: 101;
           a {
             display: block;
             color: white;
-            padding: 10px 16px;
+            padding: 8px 16px;
             text-decoration: none;
+            white-space: nowrap;
+            font-size: 1.1rem;
+            transition: all 0.3s;
             &:hover {
               background-color: #070720;
             }

@@ -19,10 +19,10 @@ export class SuggestedComponent implements OnInit {
   constructor(private movieService: MovieService) {}
 
   ngOnInit() {
-    this.fetchRecentlyReleased();
+    this.fetchSuggeted();
   }
 
-  fetchRecentlyReleased() {
+  fetchSuggeted() {
     const keyword = getRandomKeyword();
     this.loading = true;
     this.error = null;

@@ -1,0 +1,60 @@
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  .movie-card-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: transform 0.3s;
+
+    .poster-img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .overlay {
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: opacity 0.3s ease;
+      border-radius: 0.5rem;
+    }
+
+    &:hover .overlay {
+      opacity: 1 !important;
+    }
+
+    &:hover .poster-img {
+      transform: scale(1.05);
+    }
+
+    &:hover .overlay {
+      opacity: 1;
+    }
+  }
+
+  .info {
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+    opacity: 1;
+
+    .movie-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .movie-year {
+      font-size: 14px;
+      color: #aaa;
+    }
+  }
+}

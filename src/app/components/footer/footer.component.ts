@@ -12,8 +12,8 @@ import { Router, RouterModule } from '@angular/router';
 export class FooterComponent {
   navItems = [
     { label: 'Trang chủ', link: '/' },
-    { label: 'Về chúng tôi', link: '/ve-chung-toi' },
-    { label: 'Liên hệ', link: '/lien-he' },
+    { label: 'Về chúng tôi', link: '/about-us' },
+    { label: 'Liên hệ', link: '/contact' },
   ];
   currentYear = new Date().getFullYear();
 

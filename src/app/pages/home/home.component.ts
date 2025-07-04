@@ -22,7 +22,6 @@ import { SuggestedComponent } from '../../components/suggested/suggested.compone
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  searchResults: Movie[] = [];
   featuredMovies: Movie[] = [];
   recentlyReleasedMovies: Movie[] = [];
 
@@ -47,28 +46,6 @@ export class HomeComponent implements OnInit {
       },
       error: (err) => {
         this.error = err.message || 'Failed to fetch recently released movies.';
-        this.loading = false;
-      },
-    });
-  }
-
-  onSearch(query: string) {
-    if (!query.trim()) {
-      return;
-    }
-
-    this.loading = true;
-    this.error = null;
-    this.searchResults = [];
-
-    this.movieService.searchMovies(query).subscribe({
-      next: (movies) => {
-        this.searchResults = movies;
-        this.loading = false;
-      },
-      error: (error) => {
-        this.error =
-          error.message || 'An error occurred while searching for movies.';
         this.loading = false;
       },
     });

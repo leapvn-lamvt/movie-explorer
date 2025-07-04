@@ -31,7 +31,10 @@
           </ul>
         </nav>
       </div>
-      <app-search-bar class="flex-grow-1 justify-content-end"></app-search-bar>
+      <app-search-bar
+        class="flex-grow-1 justify-content-end"
+        (search)="navigateToSearch($event)"
+      ></app-search-bar>
     </div>
   </div>
 </header>

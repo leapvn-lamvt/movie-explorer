@@ -36,4 +36,12 @@ export class HeaderComponent {
   navigateToHome() {
     this.router.navigate(['/']);
   }
+
+  navigateToSearch(query: string) {
+    if(!query.trim()) {
+      return;
+    }
+
+    this.router.navigate(['/search'], { queryParams: { q: query } });
+  }
 }

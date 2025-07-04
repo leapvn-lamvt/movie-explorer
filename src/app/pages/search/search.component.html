@@ -1,1 +1,19 @@
-<p>search works!</p>
+<app-header></app-header>
+<div class="container py-5">
+  <div class="mt-4"></div>
+  <div class="row">
+    <div class="col-md-8">
+      <app-movie-grid
+        [title]="title"
+        [movies]="searchedMovies"
+      ></app-movie-grid>
+    </div>
+    <div class="col-md-4">
+      <div class="ms-5">
+        <app-suggested></app-suggested>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

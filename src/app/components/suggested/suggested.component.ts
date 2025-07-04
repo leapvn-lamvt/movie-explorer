@@ -27,7 +27,10 @@ export class SuggestedComponent {
     const keyword = getRandomKeyword();
     this.loading = true;
     this.error = null;
-    this.movieService.searchMovies(keyword, 1500).subscribe({
+    this.movieService.searchMovies({
+      query: keyword,
+      delayMs: 1500
+    }).subscribe({
       next: (movies) => {
         this.movies = movies.slice(0, 5);
         this.loading = false;

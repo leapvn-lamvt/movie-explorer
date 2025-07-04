@@ -7,7 +7,7 @@ import { MovieGridComponent } from '../../components/movie-grid/movie-grid.compo
 import { MovieSliderComponent } from '../../components/movie-slider/movie-slider.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { SuggestedComponent } from '../../components/suggested/suggested.component';
-
+import { getRecentlyReleasedKeywords } from '../../utils/randomKeyword';
 
 @Component({
   selector: 'app-home',
@@ -42,18 +42,26 @@ export class HomeComponent implements OnInit {
 
   fetchRecentlyReleased() {
     const currentYear = new Date().getFullYear();
+    const keyword = getRecentlyReleasedKeywords();
     this.loading = true;
     this.error = null;
-    this.movieService.searchMovies(currentYear.toString(), 1500).subscribe({
-      next: (movies) => {
-        this.recentlyReleasedMovies = movies.slice(0, 9);
-        this.featuredMovies = movies.slice(0, 24);
-        this.loading = false;
-      },
-      error: (err) => {
-        this.error = err.message || 'Failed to fetch recently released movies.';
-        this.loading = false;
-      },
-    });
+    this.movieService
+      .searchMovies({
+        query: keyword,
+        y: currentYear,
+        delayMs: 1500,
+      })
+      .subscribe({
+        next: (movies) => {
+          this.recentlyReleasedMovies = movies.slice(0, 9);
+          this.featuredMovies = movies.slice(0, 24);
+          this.loading = false;
+        },
+        error: (err) => {
+          this.error =
+            err.message || 'Failed to fetch recently released movies.';
+          this.loading = false;
+        },
+      });
   }
 }

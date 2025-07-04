@@ -12,7 +12,6 @@ const keywords = [
   'detective',
   'disaster',
   'drama',
-  'espionage',
   'fantasy',
   'future',
   'gangster',
@@ -22,9 +21,7 @@ const keywords = [
   'invasion',
   'journey',
   'love',
-  'martial arts',
   'mystery',
-  'post-apocalyptic',
   'robot',
   'romance',
   'sci-fi',
@@ -50,7 +47,20 @@ const keywords = [
   'magic',
 ];
 
+const recentlyReleasedKeywords = [
+  'magic',
+  'alien',
+  'war',
+  'detective',
+  'ghost'
+];
+
 export function getRandomKeyword(): string {
   const index = Math.floor(Math.random() * keywords.length);
   return keywords[index];
+}
+
+export function getRecentlyReleasedKeywords(): string {
+  const index = Math.floor(Math.random() * recentlyReleasedKeywords.length);
+  return recentlyReleasedKeywords[index];
 }

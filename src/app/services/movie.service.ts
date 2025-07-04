@@ -18,8 +18,15 @@ export interface SearchResponse {
   Response: string;
 }
 
+export interface SearchMovieOptions {
+  query?: string;
+  page?: number;
+  y?: number;
+  delayMs?: number;
+}
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MovieService {
   private readonly API_KEY = environment.omdbApiKey;
@@ -27,31 +34,36 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
-  searchMovies(query: string, delayMs: number = 0): Observable<Movie[]> {
-    if (!query.trim()) {
-      return throwError(() => new Error('Search query is required'));
-    }
-
-    const url = `${this.BASE_URL}?apikey=${this.API_KEY}&s=${encodeURIComponent(query)}`;
+  searchMovies({
+    query,
+    page = 1,
+    y,
+    delayMs = 0,
+  }: SearchMovieOptions): Observable<Movie[]> {
+    const url = `${this.BASE_URL}?apikey=${this.API_KEY}&s=${encodeURIComponent(
+      query || ''
+    )}&y=${y || ''}&page=${page}`;
 
     let obs = this.http.get<SearchResponse>(url).pipe(
-      map(response => {
+      map((response) => {
         if (response.Response === 'True') {
           return response.Search || [];
         } else {
           return [];
         }
       }),
-      catchError(error => {
+      catchError((error) => {
         console.error('Error fetching movies:', error);
-        return throwError(() => new Error('Failed to fetch movies. Please try again.'));
+        return throwError(
+          () => new Error('Failed to fetch movies. Please try again.')
+        );
       })
     );
-  
+
     if (delayMs > 0) {
       obs = obs.pipe(delay(delayMs));
     }
-  
+
     return obs;
   }
-} 
+}

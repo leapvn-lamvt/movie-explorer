@@ -8,7 +8,6 @@ import { MovieGridComponent } from '../../components/movie-grid/movie-grid.compo
 import { FooterComponent } from '../../components/footer/footer.component';
 import { SuggestedComponent } from '../../components/suggested/suggested.component';
 
-
 @Component({
   selector: 'app-search',
   standalone: true,
@@ -52,16 +51,21 @@ export class SearchComponent implements OnInit {
   searchMoviesByKeyword(query: string) {
     this.loading = true;
     this.error = null;
-    this.movieService.searchMovies(query, 1500).subscribe({
-      next: (movies) => {
-        this.searchedMovies = movies.slice(0, 9);
-        this.loading = false;
-      },
-      error: (error) => {
-        this.error =
-          error.message || 'An error occurred while searching for movies.';
-        this.loading = false;
-      },
-    });
+    this.movieService
+      .searchMovies({
+        query,
+        delayMs: 1500,
+      })
+      .subscribe({
+        next: (movies) => {
+          this.searchedMovies = movies.slice(0, 9);
+          this.loading = false;
+        },
+        error: (error) => {
+          this.error =
+            error.message || 'An error occurred while searching for movies.';
+          this.loading = false;
+        },
+      });
   }
 }

@@ -1,12 +1,12 @@
-<div class="suggested">
+<div class="movie-column">
   <h2 class="mb-4 fw-bold text-white" style="letter-spacing: 1px">
     {{ title }}
   </h2>
   <div class="row gap-3">
     <ng-container *ngIf="!movies.length; else movieList">
       <div class="col-12" *ngFor="let skel of [1, 2, 3, 4, 5]">
-        <div class="card suggested-card h-100">
-          <div class="suggested-img-wrapper skeleton"></div>
+        <div class="card movie-column-card h-100">
+          <div class="movie-column-img-wrapper skeleton"></div>
           <div class="card-body p-2 text-white">
             <div class="skeleton skeleton-title mb-1"></div>
           </div>
@@ -15,8 +15,8 @@
     </ng-container>
     <ng-template #movieList>
       <div class="col-12" *ngFor="let movie of movies">
-        <div class="card suggested-card h-100">
-          <div class="suggested-img-wrapper">
+        <div class="card movie-column-card h-100">
+          <div class="movie-column-img-wrapper">
             <img
               [src]="movie.Poster"
               [alt]="movie.Title"

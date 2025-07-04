@@ -13,4 +13,5 @@ import { Movie } from '../../services/movie.service';
 export class MovieGridComponent {
   @Input() movies!: Movie[];
   @Input() title!: string;
+  @Input() loading: boolean = false;
 }

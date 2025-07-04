@@ -4,6 +4,7 @@
   <div class="row">
     <div class="col-md-8">
       <app-movie-grid
+        [loading]="loading"
         [title]="title"
         [movies]="searchedMovies"
       ></app-movie-grid>

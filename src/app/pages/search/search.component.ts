@@ -52,7 +52,7 @@ export class SearchComponent implements OnInit {
   searchMoviesByKeyword(query: string) {
     this.loading = true;
     this.error = null;
-    this.movieService.searchMovies(query).subscribe({
+    this.movieService.searchMovies(query, 1500).subscribe({
       next: (movies) => {
         this.searchedMovies = movies.slice(0, 9);
         this.loading = false;

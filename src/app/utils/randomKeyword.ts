@@ -1,4 +1,5 @@
 const keywords = [
+  'seven',
   'action',
   'adventure',
   'alien',
@@ -45,6 +46,8 @@ const keywords = [
   'pandemic',
   'underground',
   'magic',
+  'iron man', 
+  'spider man'
 ];
 
 const recentlyReleasedKeywords = [

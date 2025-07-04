@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { MovieService, Movie } from '../../services/movie.service';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
@@ -28,9 +29,13 @@ export class HomeComponent implements OnInit {
   loading = false;
   error: string | null = null;
 
-  constructor(private movieService: MovieService) {}
+  constructor(
+    private movieService: MovieService,
+    private titleService: Title
+  ) {}
 
   ngOnInit() {
+    this.titleService.setTitle('Movie Explorer - Khám phá thế giới điện ảnh');
     this.fetchRecentlyReleased();
   }
 

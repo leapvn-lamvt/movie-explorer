@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 import { Movie, MovieService } from '../../services/movie.service';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
@@ -30,10 +31,13 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private movieService: MovieService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private titleService: Title
   ) {}
 
   ngOnInit() {
+    this.titleService.setTitle(`Movie Explorer - Tìm kiếm`);
+
     this.route.queryParams.subscribe((params) => {
       const query = params['q'];
       if (query) {

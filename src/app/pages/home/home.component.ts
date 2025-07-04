@@ -8,6 +8,7 @@ import { MovieSliderComponent } from '../../components/movie-slider/movie-slider
 import { FooterComponent } from '../../components/footer/footer.component';
 import { SuggestedComponent } from '../../components/suggested/suggested.component';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,

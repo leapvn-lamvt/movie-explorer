@@ -1,16 +1,17 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { Movie, MovieService } from '../../services/movie.service';
+import { Component } from '@angular/core';
 import { getRandomKeyword } from '../../utils/randomKeyword';
+import { Movie, MovieService } from '../../services/movie.service';
+import { MovieColumnComponent } from '../movie-column/movie-column.component';
 
 @Component({
   selector: 'app-suggested',
   standalone: true,
-  imports: [CommonModule],
+  imports: [MovieColumnComponent],
   templateUrl: './suggested.component.html',
   styleUrl: './suggested.component.scss',
 })
-export class SuggestedComponent implements OnInit {
+export class SuggestedComponent {
+  title: string = "✨ Có thể bạn sẽ thích";
   movies: Movie[] = [];
 
   loading = false;

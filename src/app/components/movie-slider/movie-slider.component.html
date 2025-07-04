@@ -1,8 +1,24 @@
 <div *ngIf="!featuredMovies">Loading...</div>
 
 <section>
-  <h2 class="mb-4 fw-bold text-white" style="letter-spacing:1px;"> 🎯 Dành cho bạn</h2>
-  <ngx-slick-carousel class="carousel" [config]="slideConfig" *ngIf="featuredMovies && featuredMovies.length" >
+  <h2 class="mb-4 fw-bold text-white" style="letter-spacing: 1px">
+    🎯 Dành cho bạn
+  </h2>
+  <ngx-slick-carousel
+    class="carousel"
+    [config]="sekeletonSlideConfig"
+    *ngIf="loading"
+  >
+    <div ngxSlickItem class="slide" *ngFor="let skel of [1, 2, 3, 4, 5]">
+      <div class="skeleton slide-img"></div>
+    </div>
+  </ngx-slick-carousel>
+  
+  <ngx-slick-carousel
+    class="carousel"
+    [config]="slideConfig"
+    *ngIf="!loading && featuredMovies && featuredMovies.length"
+  >
     <div ngxSlickItem *ngFor="let movie of featuredMovies" class="slide">
       <img class="slide-img" [src]="movie.Poster" [alt]="movie.Title" />
     </div>

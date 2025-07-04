@@ -4,12 +4,13 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { Movie } from '../../services/movie.service';
 
 @Component({
-  selector: 'app-recently-released',
+  selector: 'app-movie-grid',
   standalone: true,
   imports: [CommonModule, MovieCardComponent],
-  templateUrl: './recently-released.component.html',
-  styleUrl: './recently-released.component.scss'
+  templateUrl: './movie-grid.component.html',
+  styleUrl: './movie-grid.component.scss'
 })
-export class RecentlyReleasedComponent {
+export class MovieGridComponent {
   @Input() movies!: Movie[];
+  @Input() title!: string;
 }

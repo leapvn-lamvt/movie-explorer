@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MovieService, Movie } from '../../services/movie.service';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
-import { RecentlyReleasedComponent } from '../../components/recently-released/recently-released.component';
+import { MovieGridComponent } from '../../components/movie-grid/movie-grid.component';
 import { MovieSliderComponent } from '../../components/movie-slider/movie-slider.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { SuggestedComponent } from '../../components/suggested/suggested.component';
@@ -13,7 +13,7 @@ import { SuggestedComponent } from '../../components/suggested/suggested.compone
   imports: [
     CommonModule,
     HeaderComponent,
-    RecentlyReleasedComponent,
+    MovieGridComponent,
     MovieSliderComponent,
     FooterComponent,
     SuggestedComponent,

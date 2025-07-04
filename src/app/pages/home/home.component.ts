@@ -36,6 +36,8 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.featuredMovies = [];
+    this.recentlyReleasedMovies = [];
     this.titleService.setTitle('Movie Explorer - Khám phá thế giới điện ảnh');
     this.fetchRecentlyReleased();
   }

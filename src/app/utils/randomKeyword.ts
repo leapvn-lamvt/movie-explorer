@@ -52,7 +52,7 @@ const recentlyReleasedKeywords = [
   'alien',
   'war',
   'detective',
-  'ghost'
+  'ghost',
 ];
 
 export function getRandomKeyword(): string {

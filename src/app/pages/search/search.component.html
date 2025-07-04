@@ -1,19 +1,27 @@
 <app-header></app-header>
 <div class="container py-5">
   <div class="mt-4"></div>
-  
+
   <div class="row">
     <div class="col-md-8">
-      <app-movie-grid
-        [loading]="loading"
-        [title]="title"
-        [movies]="searchedMovies"
-      ></app-movie-grid>
-      <div *ngIf="!loading && !error && searchedMovies.length === 0">
+      <ng-container
+        *ngIf="
+          !loading && !error && searchedMovies.length === 0 && searchQuery;
+          else showGrid
+        "
+      >
         <div class="alert alert-warning text-center mt-4">
-          Không tìm thấy phim nào phù hợp với từ khóa "<b>{{ searchQuery }}</b>".
+          Không tìm thấy phim nào phù hợp với từ khóa "<b>{{ searchQuery }}</b
+          >".
         </div>
-      </div>
+      </ng-container>
+      <ng-template #showGrid>
+        <app-movie-grid
+          [loading]="loading"
+          [title]="title"
+          [movies]="searchedMovies"
+        ></app-movie-grid>
+      </ng-template>
     </div>
     <div class="col-md-4">
       <div class="ms-5">

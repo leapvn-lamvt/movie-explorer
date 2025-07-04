@@ -1,15 +1,27 @@
 <div class="suggested">
     <h2 class="mb-4 fw-bold text-white" style="letter-spacing:1px;">✨ Có thể bạn sẽ thích</h2>
     <div class="row gap-3">
-        <div class="col-12" *ngFor="let movie of movies">
-            <div class="card suggested-card h-100">
-                <div class="suggested-img-wrapper">
-                    <img [src]="movie.Poster" [alt]="movie.Title" class="card-img-top" />
-                </div>
-                <div class="card-body p-2 text-white">
-                    <h4 class="card-title mb-1">{{ movie.Title }}</h4>
+        <ng-container *ngIf="loading; else movieList">
+            <div class="col-12" *ngFor="let skel of [1,2,3,4,5]">
+                <div class="card suggested-card h-100">
+                    <div class="suggested-img-wrapper skeleton"></div>
+                    <div class="card-body p-2 text-white">
+                        <div class="skeleton skeleton-title mb-1"></div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </ng-container>
+        <ng-template #movieList>
+            <div class="col-12" *ngFor="let movie of movies">
+                <div class="card suggested-card h-100">
+                    <div class="suggested-img-wrapper">
+                        <img [src]="movie.Poster" [alt]="movie.Title" class="card-img-top" />
+                    </div>
+                    <div class="card-body p-2 text-white">
+                        <h4 class="card-title mb-1">{{ movie.Title }}</h4>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
     </div>
 </div>

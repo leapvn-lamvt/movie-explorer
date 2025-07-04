@@ -3,12 +3,6 @@
 .carousel {
   width: 100%;
   margin: 0 auto;
-  &.skeleton {
-    display: flex;
-    flex-direction: row;
-    // gap: 16px;
-    overflow: hidden;
-  }
 }
 
 .slide {

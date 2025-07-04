@@ -5,7 +5,10 @@
 <div class="container py-5">
   <div class="row">
     <div class="col-md-8">
-      <app-recently-released [movies]="recentlyReleasedMovies"></app-recently-released>
+      <app-movie-grid
+        [title]="'🔥 Phim mới phát hành'"
+        [movies]="recentlyReleasedMovies"
+      ></app-movie-grid>
     </div>
     <div class="col-md-4">
       <div class="ms-5">

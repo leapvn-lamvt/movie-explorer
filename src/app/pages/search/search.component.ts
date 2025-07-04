@@ -36,6 +36,7 @@ export class SearchComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.searchedMovies = [];
     this.titleService.setTitle(`Movie Explorer - Tìm kiếm`);
 
     this.route.queryParams.subscribe((params) => {
@@ -51,6 +52,7 @@ export class SearchComponent implements OnInit {
   searchMoviesByKeyword(query: string) {
     this.loading = true;
     this.error = null;
+    this.searchedMovies = [];
     this.movieService
       .searchMovies({
         query,

@@ -1,0 +1,67 @@
+.movie-grid {
+  .movie-grid-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: transparent;
+    .movie-grid-img-wrapper {
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      &.skeleton {
+        background: #444;
+        position: relative;
+        min-height: 120px;
+        overflow: hidden;
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background: linear-gradient(90deg, #444 0%, #888 50%, #444 100%);
+          animation: shimmer 1.2s infinite;
+        }
+      }
+    }
+    .card-body {
+      padding: 0.75rem 1rem;
+      .skeleton-title {
+        width: 70%;
+        height: 22px;
+        border-radius: 6px;
+        background: #444;
+        position: relative;
+        overflow: hidden;
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background: linear-gradient(90deg, #444 0%, #888 50%, #444 100%);
+          animation: shimmer 1.2s infinite;
+        }
+      }
+    }
+    .card-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #fff;
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}

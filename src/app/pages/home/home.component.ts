@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
     const currentYear = new Date().getFullYear();
     this.loading = true;
     this.error = null;
-    this.movieService.searchMovies(currentYear.toString()).subscribe({
+    this.movieService.searchMovies(currentYear.toString(), 1500).subscribe({
       next: (movies) => {
         this.recentlyReleasedMovies = movies.slice(0, 9);
         this.featuredMovies = movies.slice(0, 24);

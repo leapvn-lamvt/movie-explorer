@@ -8,6 +8,7 @@ import { MovieGridComponent } from '../../components/movie-grid/movie-grid.compo
 import { FooterComponent } from '../../components/footer/footer.component';
 import { SuggestedComponent } from '../../components/suggested/suggested.component';
 
+
 @Component({
   selector: 'app-search',
   standalone: true,

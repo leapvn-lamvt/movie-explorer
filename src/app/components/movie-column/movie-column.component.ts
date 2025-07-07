@@ -10,6 +10,7 @@ import { Movie } from '../../services/movie.service';
   styleUrl: './movie-column.component.scss',
 })
 export class MovieColumnComponent {
+  @Input() loading: boolean = false;
   @Input() title!: string;
   @Input() movies!: Movie[];
 }

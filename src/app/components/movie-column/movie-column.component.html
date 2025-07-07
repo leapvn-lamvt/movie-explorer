@@ -3,7 +3,7 @@
     {{ title }}
   </h2>
   <div class="row gap-3">
-    <ng-container *ngIf="!movies.length; else movieList">
+    <ng-container *ngIf="loading; else movieList">
       <div class="col-12" *ngFor="let skel of [1, 2, 3, 4, 5]">
         <div class="card movie-column-card h-100">
           <div class="movie-column-img-wrapper skeleton"></div>

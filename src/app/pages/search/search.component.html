@@ -7,10 +7,10 @@
       <ng-container *ngIf="isTooManyResultsError(); else mainContent">
         <div class="alert alert-info mt-4 px-5">
           <div class="text-center">
-            <h5>🔍 Từ khóa quá phổ biến</h5>
+            <h5>🔍 Từ khóa quá chung chung</h5>
             <p>
-              Từ khóa <b>"{{ searchQuery }}"</b> quá phổ biến và trả về quá nhiều kết quả. 
-              Vui lòng thử với từ khóa cụ thể hơn, ví dụ:
+              Từ khóa <b>"{{ searchQuery }}"</b> quá chung chung. Vui lòng thử
+              với từ khóa cụ thể hơn, ví dụ:
             </p>
           </div>
           <ul class="list-unstyled">
@@ -23,9 +23,15 @@
       </ng-container>
 
       <ng-template #mainContent>
-        <ng-container *ngIf="!loading && !error && searchedMovies.length === 0 && searchQuery; else movieGrid">
+        <ng-container
+          *ngIf="
+            !loading && !error && searchedMovies.length === 0 && searchQuery;
+            else movieGrid
+          "
+        >
           <div class="alert alert-warning text-center mt-4">
-            Không tìm thấy phim nào phù hợp với từ khóa <b>{{ searchQuery }}</b>.
+            Không tìm thấy phim nào phù hợp với từ khóa <b>{{ searchQuery }}</b
+            >.
           </div>
         </ng-container>
       </ng-template>

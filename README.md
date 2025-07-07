@@ -12,7 +12,7 @@
 
 ## 📄 License
 
-This project is for educational purposes only.
+📚 Built with love and learning — for educational purposes only.
 
 ---
 

@@ -41,9 +41,9 @@ export class CategoryComponent implements OnInit {
     this.movies = [];
     this.route.paramMap.subscribe((params) => {
       this.slug = params.get('slug') || '';
+      this.title = getTitleBySlug(this.slug);
+      this.searchMoviesByKeyword(this.slug);
     });
-    this.title = getTitleBySlug(this.slug);
-    this.searchMoviesByKeyword(this.slug)
   }
 
   searchMoviesByKeyword(query: string) {

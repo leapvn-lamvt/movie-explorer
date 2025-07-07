@@ -30,7 +30,7 @@ export class MovieDetailsComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.movieService.getMovieById(imdbID, 1000).subscribe({
+    this.movieService.getMovieById(imdbID, 750).subscribe({
       next: (movie) => {
         this.movie = movie;
         this.loading = false;

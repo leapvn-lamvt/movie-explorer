@@ -8,6 +8,8 @@
 .slide {
   padding: 8px;
   text-align: center;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1);
+  cursor: pointer;
 
   .slide-img {
     width: 100%;
@@ -15,7 +17,8 @@
     object-fit: cover;
     margin: 0 auto;
     display: block;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     &.skeleton {
       background: #444;
       position: relative;
@@ -30,6 +33,12 @@
         animation: shimmer 1.2s infinite;
       }
     }
+  }
+
+  &:not(.except-hover):hover {
+    transform: scale(1.07) translateY(-8px) rotateZ(-1deg);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25), 0 1.5px 8px 0 rgba(255, 140, 0, 0.15);
+    z-index: 2;
   }
 }
 

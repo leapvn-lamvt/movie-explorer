@@ -1,0 +1,5 @@
+@use "variables" as *;
+
+.movie-details {
+    min-height: calc(100vh - $header-height - $footer-lg-height);
+}

@@ -1,0 +1,48 @@
+<app-header></app-header>
+<div class="container">
+  <div *ngIf="loading" class="text-center my-5">
+    <div class="spinner-border text-orange" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div>Đang tải thông tin phim...</div>
+  </div>
+
+  <div *ngIf="error && !loading" class="alert alert-danger text-center my-5">
+    <h5>❌ Lỗi</h5>
+    <p>{{ error }}</p>
+  </div>
+
+  <div *ngIf="movie && !loading && !error" class="row movie-details text-white py-5">
+    <div class="col-md-4 text-center mb-4 mb-md-0">
+      <img
+        [src]="movie.Poster"
+        [alt]="movie.Title"
+        class="img-fluid rounded shadow"
+        style="max-height: 500px"
+      />
+    </div>
+    <div class="col-md-8">
+      <h2 class="mb-2">
+        {{ movie.Title }}
+        <span class="text-white fs-5">({{ movie.Year }})</span>
+      </h2>
+      <div class="mb-2">
+        <span class="badge bg-info me-2">{{ movie.Runtime }}</span>
+        <span class="badge bg-success">{{ movie.Genre }}</span>
+      </div>
+      <div class="mb-3 text-white">Phát hành: {{ movie.Released }}</div>
+      <p class="lead">{{ movie.Plot }}</p>
+      <div class="mb-2"><strong>Đạo diễn:</strong> {{ movie.Director }}</div>
+      <div class="mb-2"><strong>Diễn viên:</strong> {{ movie.Actors }}</div>
+      <div class="mb-2"><strong>Biên kịch:</strong> {{ movie.Writer }}</div>
+      <div class="mb-2">
+        <strong>Điểm đánh giá: </strong>
+        <span class="fw-bold">{{ movie.imdbRating }}</span> ({{
+          movie.imdbVotes
+        }}
+        bình chọn)
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

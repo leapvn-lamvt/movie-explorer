@@ -1,7 +1,7 @@
 @use "variables" as *;
 
 header {
-  height: 64px;
+  height: $header-height;
   position: fixed;
   top: 0;
   left: 0;

@@ -29,7 +29,7 @@ export class SuggestedComponent {
     this.error = null;
     this.movieService.searchMovies({
       query: keyword,
-      delayMs: 1500
+      delayMs: 1000
     }).subscribe({
       next: (movies) => {
         this.movies = movies.slice(0, 5);

@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
       .searchMovies({
         query: keyword,
         y: currentYear,
-        delayMs: 1500,
+        delayMs: 1000,
       })
       .subscribe({
         next: (movies) => {

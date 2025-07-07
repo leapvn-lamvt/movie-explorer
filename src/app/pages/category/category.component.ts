@@ -53,7 +53,7 @@ export class CategoryComponent implements OnInit {
     this.movieService
       .searchMovies({
         query,
-        delayMs: 1500,
+        delayMs: 1000,
       })
       .subscribe({
         next: (movies) => {

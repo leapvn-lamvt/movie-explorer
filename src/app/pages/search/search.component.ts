@@ -70,4 +70,11 @@ export class SearchComponent implements OnInit {
         },
       });
   }
+
+  isTooManyResultsError(): boolean {
+    if (!this.error) return false;
+    
+    const errorLower = this.error.toLowerCase();
+    return errorLower.includes('too many results');
+  }
 }

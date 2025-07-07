@@ -22,21 +22,20 @@
     <div class="col-md-8">
       <h2 class="mb-2">
         {{ movie.Title }}
-        <span class="text-white fs-5">({{ movie.Year }})</span>
       </h2>
       <div class="mb-2">
-        <span class="badge bg-info me-2" *ngIf="movie.Runtime && movie.Runtime !== 'N/A'">{{ movie.Runtime }}</span>
+        <span
+          class="badge bg-info me-2"
+          *ngIf="movie.Runtime && movie.Runtime !== 'N/A'"
+          >{{ movie.Runtime }}</span
+        >
         <span class="badge bg-success">{{ movie.Genre }}</span>
       </div>
       <div class="mb-3 text-white">Phát hành: {{ movie.Released }}</div>
       <p class="lead">{{ movie.Plot }}</p>
-      <div class="mb-2">
-        <strong>Đạo diễn:</strong> {{ movie.Director }}
-      </div>
+      <div class="mb-2"><strong>Đạo diễn:</strong> {{ movie.Director }}</div>
       <div class="mb-2"><strong>Diễn viên:</strong> {{ movie.Actors }}</div>
-      <div class="mb-2">
-        <strong>Biên kịch:</strong> {{ movie.Writer }}
-      </div>
+      <div class="mb-2"><strong>Biên kịch:</strong> {{ movie.Writer }}</div>
       <div class="mb-2">
         <strong>Nhà sản xuất:</strong> {{ movie.Production || "N/A" }}
       </div>

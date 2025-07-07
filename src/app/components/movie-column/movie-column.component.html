@@ -15,7 +15,10 @@
     </ng-container>
     <ng-template #movieList>
       <div class="col-12" *ngFor="let movie of movies">
-        <div (click)="navigateToDetailsPage(movie.imdbID)" class="card movie-column-card h-100">
+        <div
+          (click)="navigateToDetailsPage(movie.imdbID)"
+          class="card movie-column-card h-100"
+        >
           <div class="movie-column-img-wrapper">
             <img
               [src]="movie.Poster"

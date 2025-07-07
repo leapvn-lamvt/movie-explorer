@@ -16,6 +16,7 @@ export interface SearchResponse {
   Search: Movie[];
   totalResults: string;
   Response: string;
+  Error?: string;
 }
 
 export interface SearchMovieOptions {
@@ -49,11 +50,24 @@ export class MovieService {
         if (response.Response === 'True') {
           return response.Search || [];
         } else {
+          // Handle specific OMDb API errors
+          if (response.Error) {
+            if (response.Error.toLowerCase().includes('too many results')) {
+              throw new Error('Too many results found. Please try a more specific search term.');
+            } else if (response.Error.toLowerCase().includes('movie not found')) {
+              return [];
+            } else {
+              throw new Error(response.Error);
+            }
+          }
           return [];
         }
       }),
       catchError((error) => {
         console.error('Error fetching movies:', error);
+        if (error.message && (error.message.includes('Too many results') || error.message.includes('movie not found'))) {
+          return throwError(() => error);
+        }
         return throwError(
           () => new Error('Failed to fetch movies. Please try again.')
         );

@@ -1,10 +1,24 @@
 <app-header></app-header>
 <div class="container">
-  <div *ngIf="loading" class="text-center movie-details py-5">
-    <div class="spinner-border text-orange" role="status">
-      <span class="visually-hidden">Loading...</span>
+  <!-- Skeleton Loader -->
+  <div *ngIf="loading" class="row movie-details-skeleton py-5 align-items-start">
+    <div class="col-md-4 text-center mb-4 mb-md-0">
+      <div class="skeleton-poster rounded shadow"></div>
     </div>
-    <div>Đang tải thông tin phim...</div>
+    <div class="col-md-8">
+      <div class="skeleton-title mb-3"></div>
+      <div class="d-flex gap-2 mb-2">
+        <div class="skeleton-badge me-2"></div>
+        <div class="skeleton-badge"></div>
+      </div>
+      <div class="skeleton-line mb-3" style="width: 40%"></div>
+      <div class="skeleton-paragraph mb-3"></div>
+      <div class="skeleton-line mb-2" style="width: 60%"></div>
+      <div class="skeleton-line mb-2" style="width: 50%"></div>
+      <div class="skeleton-line mb-2" style="width: 70%"></div>
+      <div class="skeleton-line mb-2" style="width: 30%"></div>
+      <div class="skeleton-line mb-2" style="width: 40%"></div>
+    </div>
   </div>
 
   <div

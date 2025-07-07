@@ -1,20 +1,22 @@
 <footer class="footer text-light py-5 mt-auto">
   <div
-    class="container d-flex flex-column flex-md-row align-items-center justify-content-between"
+    class="container d-flex flex-md-row align-items-center justify-content-between"
   >
-    <h1 class="footer-logo" (click)="navigateToHome()">
-      Movie <span class="text-orange">Explorer</span>
-    </h1>
-    <div class="footer-nav mb-2 mb-md-0">
-      <ul class="list-inline mb-0">
-        <li class="list-inline-item" *ngFor="let item of navItems">
-          <a
-            class="text-light text-decoration-none px-2"
-            routerLink="{{ item.link }}"
-            >{{ item.label }}</a
-          >
-        </li>
-      </ul>
+    <div class="d-flex align-items-center gap-4">
+      <h1 class="footer-logo" (click)="navigateToHome()">
+        Movie <span class="text-orange">Explorer</span>
+      </h1>
+      <div class="footer-nav mb-2 mb-md-0">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item" *ngFor="let item of navItems">
+            <a
+              class="text-light text-decoration-none px-2"
+              routerLink="{{ item.link }}"
+              >{{ item.label }}</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="footer-copy">
       Copyright &copy; {{ currentYear }} All rights reserved | Developed by Vo

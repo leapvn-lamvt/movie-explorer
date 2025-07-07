@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { Movie } from '../../services/movie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-slider',
@@ -56,4 +57,10 @@ export class MovieSliderComponent {
 
   @Input() featuredMovies!: Movie[];
   @Input() loading: boolean = false;
+
+  constructor(private router: Router) {}
+
+  navigateToDetailsPage(imdbID: string) {
+    this.router.navigate(['/movie-details', imdbID]);
+  }
 }

@@ -2,6 +2,10 @@ import { RenderMode, ServerRoute } from '@angular/ssr';
 
 export const serverRoutes: ServerRoute[] = [
   {
+    path: 'about-us',
+    renderMode: RenderMode.Prerender,
+  },
+  {
     path: 'movie-details/:imdbID',
     renderMode: RenderMode.Server,
   },

@@ -5,8 +5,8 @@
   <div class="row">
     <div class="col-12 col-lg-8">
       <ng-container *ngIf="isTooManyResultsError(); else mainContent">
-        <div class="alert alert-info mt-4 px-5">
-          <div class="text-center">
+        <div class="alert alert-info mt-4 px-md-5">
+          <div class="text-md-center">
             <h5>🔍 Từ khóa quá chung chung</h5>
             <p>
               Từ khóa <b>"{{ searchQuery }}"</b> quá chung chung. Vui lòng thử
@@ -20,6 +20,7 @@
             <li>• Thể loại phim: "action", "romance", "comedy"</li>
           </ul>
         </div>
+        <div class="mb-5 d-lg-none"></div>
       </ng-container>
 
       <ng-template #mainContent>

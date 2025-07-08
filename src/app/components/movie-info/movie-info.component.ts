@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MovieDetails } from '../../services/movie.service';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MovieDetails } from '../../services/movie.service';
 
 @Component({
   selector: 'app-movie-info',
@@ -10,6 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './movie-info.component.scss',
 })
 export class MovieInfoComponent {
-  @Input() loading!: boolean;
   @Input() movie: MovieDetails | null = null;
+  @Input() loading: boolean = false;
 }

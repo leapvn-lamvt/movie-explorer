@@ -75,7 +75,7 @@ export class MovieDetailsComponent implements OnInit {
     this.movieService
         .searchMovies({
           query: keyword,
-          delayMs: 500,
+          delayMs: 750,
         })
         .subscribe({
           next: (movies) => {

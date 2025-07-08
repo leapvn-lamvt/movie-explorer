@@ -1,11 +1,7 @@
 @use "variables" as *;
 
-.movie-details {
-  min-height: calc(100vh - $header-height - $footer-lg-height);
-}
 
 .movie-details-skeleton {
-  min-height: calc(100vh - $header-height - $footer-lg-height);
   
   .skeleton-poster {
     width: 100%;

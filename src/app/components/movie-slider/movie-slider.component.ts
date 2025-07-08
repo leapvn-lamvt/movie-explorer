@@ -57,6 +57,7 @@ export class MovieSliderComponent {
 
   @Input() featuredMovies!: Movie[];
   @Input() loading: boolean = false;
+  @Input() title: string = '🎯 Dành cho bạn';
 
   constructor(private router: Router) {}
 

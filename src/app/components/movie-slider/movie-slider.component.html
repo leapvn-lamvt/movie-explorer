@@ -1,6 +1,6 @@
 <section>
   <h2 class="mb-4 fw-bold text-white" style="letter-spacing: 1px">
-    🎯 Dành cho bạn
+    {{ title }}
   </h2>
   <ng-container *ngIf="loading; else movieSlider">
     <ngx-slick-carousel class="carousel" [config]="sekeletonSlideConfig">

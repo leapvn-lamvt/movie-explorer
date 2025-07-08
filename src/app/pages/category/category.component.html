@@ -1,17 +1,17 @@
 <app-header></app-header>
-<div class="container py-5">
-  <div class="mt-4"></div>
+<div class="container py-5 px-5 px-md-0">
+  <div class="mt-lg-4"></div>
 
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-12 col-lg-8">
       <app-movie-grid
         [loading]="loading"
         [title]="title"
         [movies]="movies"
       ></app-movie-grid>
     </div>
-    <div class="col-md-4">
-      <div class="ms-5">
+    <div class="col-12 col-lg-4">
+      <div class="ms-lg-5">
         <app-suggested></app-suggested>
       </div>
     </div>

@@ -1,7 +1,7 @@
 <div>
   <!-- Skeleton Loader -->
   <ng-container *ngIf="loading; else movieDetails">
-    <div class="row movie-details-skeleton py-5 align-items-start">
+    <div class="row movie-info-skeleton py-5 align-items-start">
       <div class="col-md-4 text-center mb-4 mb-md-0">
         <div class="skeleton-poster rounded shadow"></div>
       </div>
@@ -26,7 +26,7 @@
   <ng-template #movieDetails>
     <div
       *ngIf="movie && !loading"
-      class="row movie-details text-white py-5"
+      class="row text-white py-5"
     >
       <div class="col-md-4 text-center mb-4 mb-md-0">
         <img

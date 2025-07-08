@@ -1,8 +1,8 @@
 <form
-  class="row align-items-center justify-content-end"
+  class="row align-items-center justify-content-start justify-content-md-end"
   (submit)="onSubmit($event)"
 >
-  <div class="col-md-6 col-sm-8">
+  <div class="col-8 col-md-6">
     <input
       type="text"
       class="form-control"
@@ -11,7 +11,7 @@
       name="searchQuery"
     />
   </div>
-  <div class="col-auto">
+  <div class="col-4 col-md-auto">
     <button type="submit" class="search-btn btn bg-orange text-white w-100">
       Tìm kiếm <i class="fa-solid fa-magnifying-glass"></i>
     </button>

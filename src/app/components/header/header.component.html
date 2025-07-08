@@ -1,11 +1,14 @@
 <header>
   <div class="container">
     <div class="d-flex align-items-center justify-content-between w-100">
+      <!-- Logo -->
       <div class="d-flex align-items-center">
         <h1 class="header-title" (click)="navigateToHome()">
           Movie <span class="text-orange">Explorer</span>
         </h1>
-        <nav class="header-nav">
+        
+        <!-- Desktop Navigation -->
+        <nav class="header-nav d-none d-lg-block">
           <ul>
             <ng-container *ngFor="let item of navItems">
               <li *ngIf="!item.dropdown">
@@ -31,10 +34,76 @@
           </ul>
         </nav>
       </div>
-      <app-search-bar
-        class="flex-grow-1 justify-content-end"
-        (search)="navigateToSearch($event)"
-      ></app-search-bar>
+
+      <!-- Search Bar - Responsive -->
+      <div class="search-container d-none d-md-block">
+        <app-search-bar
+          class="flex-grow-1 justify-content-end"
+          (search)="navigateToSearch($event)"
+        ></app-search-bar>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="d-lg-none">
+        <button 
+          class="mobile-menu-btn" 
+          (click)="toggleMobileMenu()"
+          [class.active]="isMobileMenuOpen"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-nav-overlay" [class.active]="isMobileMenuOpen" (click)="closeMobileMenu()">
+    <div class="mobile-nav-content" (click)="$event.stopPropagation()">
+      <div class="mobile-nav-header">
+        <h3 class="text-white mb-0">Menu</h3>
+        <button class="close-btn" (click)="closeMobileMenu()">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+      
+      <!-- Mobile Search Bar -->
+      <div class="mobile-search-bar px-3 my-3 d-md-none">
+        <app-search-bar
+          class="w-100"
+          (search)="navigateToSearch($event)"
+        ></app-search-bar>
+      </div>
+
+      <nav class="mobile-nav">
+        <ul>
+          <ng-container *ngFor="let item of navItems">
+            <li *ngIf="!item.dropdown">
+              <a routerLink="{{ item.link }}" (click)="closeMobileMenu()">
+                <i *ngIf="item.icon" [class]="item.icon + ' me-3'"></i>
+                {{ item.label }}
+              </a>
+            </li>
+            <li class="mobile-dropdown" *ngIf="item.dropdown">
+              <div class="dropdown-header" (click)="toggleMobileDropdown(item.label)">
+                <!-- <i *ngIf="item.icon" [class]="item.icon + ' me-3'"></i> -->
+                {{ item.label }}
+                <i class="fa-solid fa-chevron-down ms-auto" [class.rotated]="openDropdowns.includes(item.label)"></i>
+              </div>
+              <div class="mobile-dropdown-content" [class.open]="openDropdowns.includes(item.label)">
+                <a
+                  *ngFor="let subItem of item.subItems"
+                  routerLink="{{ subItem.link }}"
+                  (click)="closeMobileMenu()"
+                >
+                  {{ subItem.label }}
+                </a>
+              </div>
+            </li>
+          </ng-container>
+        </ul>
+      </nav>
     </div>
   </div>
 </header>

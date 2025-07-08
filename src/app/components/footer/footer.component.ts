@@ -13,7 +13,7 @@ export class FooterComponent {
   navItems = [
     { label: 'Trang chủ', link: '/' },
     { label: 'Về chúng tôi', link: '/about-us' },
-    { label: 'Liên hệ', link: '/contact' },
+    // { label: 'Liên hệ', link: '/contact' },
   ];
   currentYear = new Date().getFullYear();
 

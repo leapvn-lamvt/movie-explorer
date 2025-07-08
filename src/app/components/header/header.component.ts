@@ -32,7 +32,7 @@ export class HeaderComponent {
       ],
     },
     { label: 'Về chúng tôi', link: '/about-us', icon: 'fa-solid fa-users' },
-    { label: 'Liên hệ', link: '/contact', icon: 'fa-solid fa-envelope' },
+    // { label: 'Liên hệ', link: '/contact', icon: 'fa-solid fa-envelope' },
   ];
 
   constructor(private router: Router) {}

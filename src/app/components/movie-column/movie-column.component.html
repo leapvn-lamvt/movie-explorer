@@ -2,7 +2,7 @@
   <h2 class="mb-4 fw-bold text-white" style="letter-spacing: 1px">
     {{ title }}
   </h2>
-  <div class="row gap-3">
+  <div class="row gap-lg-3">
     <ng-container *ngIf="loading; else movieList">
       <div class="col-12" *ngFor="let skel of [1, 2, 3, 4, 5]">
         <div class="card movie-column-card h-100">
@@ -14,7 +14,7 @@
       </div>
     </ng-container>
     <ng-template #movieList>
-      <div class="col-12" *ngFor="let movie of movies">
+      <div class="col-6 col-lg-12" *ngFor="let movie of movies">
         <div
           (click)="navigateToDetailsPage(movie.imdbID)"
           class="card movie-column-card h-100"

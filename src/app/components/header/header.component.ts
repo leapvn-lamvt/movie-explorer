@@ -18,6 +18,7 @@ export class HeaderComponent {
     { label: 'Trang chủ', link: '/', icon: 'fa-solid fa-house' },
     {
       label: 'Thể loại',
+      icon: 'fa-solid fa-layer-group',
       dropdown: true,
       subItems: [
         { label: 'Phim hành động', link: '/category/action' },
@@ -45,6 +46,7 @@ export class HeaderComponent {
       return;
     }
 
+    this.closeMobileMenu()
     this.router.navigate(['/search'], { queryParams: { q: query } });
   }
 

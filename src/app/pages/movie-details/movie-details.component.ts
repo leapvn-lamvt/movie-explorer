@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MovieDetails, MovieService } from '../../services/movie.service';
+import { MovieInfoComponent } from '../../components/movie-info/movie-info.component';
 
 @Component({
   selector: 'app-movie-details',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent],
+  imports: [CommonModule, HeaderComponent, FooterComponent, MovieInfoComponent],
   templateUrl: './movie-details.component.html',
   styleUrl: './movie-details.component.scss',
 })

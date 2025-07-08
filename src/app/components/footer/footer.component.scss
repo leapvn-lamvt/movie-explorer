@@ -1,35 +1,77 @@
 @use "variables" as *;
 
 .footer {
+  background: #181828;
+  color: #fff;
   font-size: 1rem;
-  background-color: $c-color-070720;
-  height: $footer-lg-height;
+  min-height: $footer-lg-height;
+  height: auto;
 
   .footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
     user-select: none;
-    &:hover {
-      cursor: pointer;
+    cursor: pointer;
+    span.text-orange {
+      color: $c-orange;
     }
   }
   .footer-nav ul {
     padding-left: 0;
+    margin-bottom: 0;
+    li {
+      margin: 0 8px;
+      a {
+        font-size: 1rem;
+        transition: color 0.2s;
+        &:hover {
+          color: $c-orange;
+        }
+      }
+    }
   }
   .footer-copy {
     font-size: 0.95rem;
     opacity: 0.8;
+    margin-top: 0;
+    text-align: right;
   }
+}
 
-  li {
-    a {
-      color: white;
-      text-decoration: none;
+// Responsive styles
+@media (max-width: 575px) {
+  .footer-logo {
+    font-size: 1rem;
+    // margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding: 2rem 0 1rem 0;
+    .container {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 1.5rem;
+    }
+    .footer-logo {
       font-size: 1.2rem;
-      padding: 8px 12px;
-      transition: all 0.3s;
-      &:hover {
-        color: $c-orange!important;
-        cursor: pointer;
+      margin-bottom: 0.5rem;
+    }
+    .footer-nav ul {
+      text-align: left;
+      li {
+        margin: 0 4px;
+        a {
+          font-size: 0.98rem;
+        }
       }
+    }
+    .footer-copy {
+      font-size: 0.9rem;
+      text-align: left;
+      margin-top: 0.5rem;
     }
   }
 }

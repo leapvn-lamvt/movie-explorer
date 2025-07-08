@@ -11,6 +11,9 @@ import { SearchBarComponent } from '../search-bar/search-bar.component';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+  isMobileMenuOpen = false;
+  openDropdowns: string[] = [];
+
   navItems = [
     { label: 'Trang chủ', link: '/', icon: 'fa-solid fa-house' },
     {
@@ -43,5 +46,29 @@ export class HeaderComponent {
     }
 
     this.router.navigate(['/search'], { queryParams: { q: query } });
+  }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    if (this.isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
+    this.openDropdowns = [];
+    document.body.style.overflow = '';
+  }
+
+  toggleMobileDropdown(label: string) {
+    const index = this.openDropdowns.indexOf(label);
+    if (index > -1) {
+      this.openDropdowns.splice(index, 1);
+    } else {
+      this.openDropdowns.push(label);
+    }
   }
 }

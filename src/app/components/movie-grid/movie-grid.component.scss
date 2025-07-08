@@ -7,7 +7,7 @@
     background: transparent;
     .movie-grid-img-wrapper {
       width: 100%;
-      aspect-ratio: 16/9;
+      aspect-ratio: 3/4;
       overflow: hidden;
       background: #222;
       display: flex;
@@ -22,7 +22,7 @@
       &.skeleton {
         background: #444;
         position: relative;
-        min-height: 120px;
+        min-height: 180px;
         overflow: hidden;
         &::after {
           content: '';
@@ -58,6 +58,33 @@
       font-weight: 600;
       color: #fff;
     }
+  }
+}
+
+@media (min-width: 576px) {
+  .movie-grid .movie-grid-card .movie-grid-img-wrapper {
+    aspect-ratio: 16/10;
+  }
+  .movie-grid .movie-grid-card .movie-grid-img-wrapper.skeleton {
+    min-height: 200px;
+  }
+}
+
+@media (min-width: 768px) {
+  .movie-grid .movie-grid-card .movie-grid-img-wrapper {
+    aspect-ratio: 16/9;
+  }
+  .movie-grid .movie-grid-card .movie-grid-img-wrapper.skeleton {
+    min-height: 220px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .movie-grid .movie-grid-card .movie-grid-img-wrapper {
+    aspect-ratio: 16/9;
+  }
+  .movie-grid .movie-grid-card .movie-grid-img-wrapper.skeleton {
+    min-height: 240px;
   }
 }
 

@@ -7,3 +7,9 @@
         background-color: $c-orange;
     }
 }
+
+@media (max-width: 393px) {
+  .search-btn {
+    font-size: 0.9rem
+  }
+}

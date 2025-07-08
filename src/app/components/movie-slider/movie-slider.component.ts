@@ -30,7 +30,7 @@ export class MovieSliderComponent {
         settings: { slidesToShow: 2 }
       },
       {
-        breakpoint: 480,
+        breakpoint: 576,
         settings: { slidesToShow: 1 }
       }
     ]
@@ -49,7 +49,7 @@ export class MovieSliderComponent {
         settings: { slidesToShow: 2 }
       },
       {
-        breakpoint: 480,
+        breakpoint: 576,
         settings: { slidesToShow: 1 }
       }
     ]

@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { getRandomKeyword } from '../../utils/randomKeyword';
 import { Movie, MovieService } from '../../services/movie.service';
 import { MovieColumnComponent } from '../movie-column/movie-column.component';
+import { MovieSliderComponent } from '../movie-slider/movie-slider.component';
 
 @Component({
   selector: 'app-suggested',
   standalone: true,
-  imports: [MovieColumnComponent],
+  imports: [MovieColumnComponent, MovieSliderComponent],
   templateUrl: './suggested.component.html',
   styleUrl: './suggested.component.scss',
 })

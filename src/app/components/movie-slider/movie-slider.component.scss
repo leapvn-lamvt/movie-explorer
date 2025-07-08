@@ -13,7 +13,7 @@
 
   .slide-img {
     width: 100%;
-    height: 300px;
+    height: 200px; // Default mobile height
     object-fit: cover;
     margin: 0 auto;
     display: block;
@@ -23,7 +23,7 @@
       background: #444;
       position: relative;
       overflow: hidden;
-      min-height: 300px;
+      min-height: 200px;
       &::after {
         content: '';
         display: block;
@@ -42,6 +42,43 @@
   }
 }
 
+// Responsive breakpoints
+@media (min-width: 576px) {
+  .slide .slide-img {
+    height: 250px;
+  }
+  .slide .slide-img.skeleton {
+    min-height: 250px;
+  }
+}
+
+@media (min-width: 768px) {
+  .slide .slide-img {
+    height: 280px;
+  }
+  .slide .slide-img.skeleton {
+    min-height: 280px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slide .slide-img {
+    height: 300px;
+  }
+  .slide .slide-img.skeleton {
+    min-height: 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .slide .slide-img {
+    height: 320px;
+  }
+  .slide .slide-img.skeleton {
+    min-height: 320px;
+  }
+}
+
 @keyframes shimmer {
   0% { background-position: -200px 0; }
   100% { background-position: 200px 0; }
@@ -49,11 +86,15 @@
 
 ::ng-deep {
   .slick-dots {
+    bottom: -30px; // Default mobile positioning
+    
     li {
+      margin: 0 4px; // Default mobile spacing
+      
       button {
         &:before {
           color: white !important;
-          font-size: 12px;
+          font-size: 10px; // Default mobile size
           opacity: 0.7;
         }
       }
@@ -79,6 +120,49 @@
       color: $c-orange;
       font-size: 24px;
       opacity: 1;
+    }
+  }
+}
+
+// Responsive slick-dots
+@media (min-width: 576px) {
+  ::ng-deep .slick-dots {
+    bottom: -35px;
+    
+    li {
+      margin: 0 6px;
+      
+      button:before {
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  ::ng-deep .slick-dots {
+    bottom: -40px;
+    
+    li {
+      margin: 0 8px;
+      
+      button:before {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  ::ng-deep .slick-dots {
+    bottom: -45px;
+    
+    li {
+      margin: 0 10px;
+      
+      button:before {
+        font-size: 14px;
+      }
     }
   }
 }

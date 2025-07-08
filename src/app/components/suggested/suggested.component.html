@@ -1,5 +1,15 @@
-<app-movie-column
-  [title]="title"
-  [movies]="movies"
-  [loading]="loading"
-></app-movie-column>
+<div class="d-none d-lg-block">
+  <app-movie-column
+    [title]="title"
+    [movies]="movies"
+    [loading]="loading"
+  ></app-movie-column>
+</div>
+
+<div class="d-lg-none">
+  <app-movie-slider
+    [title]="title"
+    [featuredMovies]="movies"
+    [loading]="loading"
+  ></app-movie-slider>
+</div>

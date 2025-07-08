@@ -11,6 +11,7 @@ import {
 import { MovieInfoComponent } from '../../components/movie-info/movie-info.component';
 import { MovieSliderComponent } from '../../components/movie-slider/movie-slider.component';
 import { Title } from '@angular/platform-browser';
+import { getRandomKeyword } from '../../utils/randomKeyword';
 
 @Component({
   selector: 'app-movie-details',
@@ -69,17 +70,16 @@ export class MovieDetailsComponent implements OnInit {
     // Extract relevant keywords from movie details
     const keywords = this.extractRelevantKeywords(movie);
 
-    // Use the first keyword to fetch relevant movies
-    if (keywords.length > 0) {
-      const keyword = keywords[0]; // Use the most relevant keyword
-      this.movieService
+    const keyword = keywords.length > 0 ? keywords[Math.floor(Math.random() * keywords.length)]: getRandomKeyword();
+
+    this.movieService
         .searchMovies({
           query: keyword,
           delayMs: 500,
         })
         .subscribe({
           next: (movies) => {
-            // Filter out the current movie and limit to 10 movies
+            // Filter out the current movie and limit to 12 movies
             this.relevantMovies = movies
               .filter((m) => m.imdbID !== movie.imdbID)
               .slice(0, 12);
@@ -90,9 +90,6 @@ export class MovieDetailsComponent implements OnInit {
             this.relevantLoading = false;
           },
         });
-    } else {
-      this.relevantLoading = false;
-    }
   }
 
   private extractRelevantKeywords(movie: MovieDetails): string[] {

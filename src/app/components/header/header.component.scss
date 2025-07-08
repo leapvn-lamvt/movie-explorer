@@ -85,6 +85,11 @@ header {
   }
 }
 
+.header-nav a.active,
+.mobile-nav a.active {
+  color: $c-orange !important;
+}
+
 // Mobile Menu Button
 .mobile-menu-btn {
   background: none;

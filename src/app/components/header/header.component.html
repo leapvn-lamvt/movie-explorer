@@ -12,7 +12,9 @@
           <ul>
             <ng-container *ngFor="let item of navItems">
               <li *ngIf="!item.dropdown">
-                <a routerLink="{{ item.link }}">
+                <a routerLink="{{ item.link }}" 
+                   routerLinkActive="active" 
+                   [routerLinkActiveOptions]="{ exact: item.link === '/' }">
                   {{ item.label }}
                   <i *ngIf="item.icon" [class]="item.icon + ' ms-2'"></i>
                 </a>
@@ -25,6 +27,8 @@
                   <a
                     *ngFor="let subItem of item.subItems"
                     routerLink="{{ subItem.link }}"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: false }"
                   >
                     {{ subItem.label }}
                   </a>
@@ -79,7 +83,10 @@
         <ul>
           <ng-container *ngFor="let item of navItems">
             <li *ngIf="!item.dropdown">
-              <a routerLink="{{ item.link }}" (click)="closeMobileMenu()">
+              <a routerLink="{{ item.link }}" 
+                 routerLinkActive="active" 
+                 [routerLinkActiveOptions]="{ exact: item.link === '/' }" 
+                 (click)="closeMobileMenu()">
                 <i *ngIf="item.icon" [class]="item.icon + ' me-3'"></i>
                 {{ item.label }}
               </a>
@@ -94,6 +101,8 @@
                 <a
                   *ngFor="let subItem of item.subItems"
                   routerLink="{{ subItem.link }}"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: false }"
                   (click)="closeMobileMenu()"
                 >
                   {{ subItem.label }}

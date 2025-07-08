@@ -1,0 +1,75 @@
+<div class="container">
+  <!-- Skeleton Loader -->
+  <ng-container *ngIf="loading; else movieDetails">
+    <div class="row movie-details-skeleton py-5 align-items-start">
+      <div class="col-md-4 text-center mb-4 mb-md-0">
+        <div class="skeleton-poster rounded shadow"></div>
+      </div>
+      <div class="col-md-8">
+        <div class="skeleton-title mb-3"></div>
+        <div class="d-flex gap-2 mb-2">
+          <div class="skeleton-badge me-2"></div>
+          <div class="skeleton-badge"></div>
+        </div>
+        <div class="skeleton-line mb-3" style="width: 40%"></div>
+        <div class="skeleton-paragraph mb-3"></div>
+        <div class="skeleton-line mb-2" style="width: 60%"></div>
+        <div class="skeleton-line mb-2" style="width: 50%"></div>
+        <div class="skeleton-line mb-2" style="width: 70%"></div>
+        <div class="skeleton-line mb-2" style="width: 30%"></div>
+        <div class="skeleton-line mb-2" style="width: 40%"></div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Movie details  -->
+  <ng-template #movieDetails>
+    <div
+      *ngIf="movie && !loading"
+      class="row movie-details text-white py-5"
+    >
+      <div class="col-md-4 text-center mb-4 mb-md-0">
+        <img
+          [src]="movie.Poster"
+          [alt]="movie.Title"
+          class="img-fluid rounded shadow"
+          style="max-height: 500px"
+        />
+      </div>
+      <div class="col-md-8">
+        <h2 class="mb-2">
+          {{ movie.Title }}
+        </h2>
+        <div class="mb-2">
+          <span
+            class="badge bg-info me-2"
+            *ngIf="movie.Runtime && movie.Runtime !== 'N/A'"
+            >{{ movie.Runtime }}</span
+          >
+          <span class="badge bg-success">{{ movie.Genre }}</span>
+        </div>
+        <div class="mb-3 text-white">Phát hành: {{ movie.Released }}</div>
+        <p class="lead">{{ movie.Plot }}</p>
+        <div class="mb-2"><strong>Đạo diễn:</strong> {{ movie.Director }}</div>
+        <div class="mb-2"><strong>Diễn viên:</strong> {{ movie.Actors }}</div>
+        <div class="mb-2"><strong>Biên kịch:</strong> {{ movie.Writer }}</div>
+        <div class="mb-2">
+          <strong>Nhà sản xuất:</strong> {{ movie.Production || "N/A" }}
+        </div>
+        <div
+          class="mb-2"
+          *ngIf="
+            movie.imdbRating &&
+            movie.imdbRating !== 'N/A' &&
+            movie.imdbVotes &&
+            movie.imdbVotes !== 'N/A'
+          "
+        >
+          <strong>Điểm đánh giá: </strong>
+          <span class="fw-bold">{{ movie.imdbRating }}</span>
+          ({{ movie.imdbVotes }} bình chọn)
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

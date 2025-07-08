@@ -1,9 +1,9 @@
 <app-header></app-header>
-<div class="container py-5">
-  <div class="mt-4"></div>
+<div class="container py-5 px-5 px-md-0">
+  <div class="mt-lg-4"></div>
 
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-12 col-lg-8">
       <ng-container *ngIf="isTooManyResultsError(); else mainContent">
         <div class="alert alert-info mt-4 px-5">
           <div class="text-center">
@@ -44,8 +44,8 @@
         ></app-movie-grid>
       </ng-template>
     </div>
-    <div class="col-md-4">
-      <div class="ms-5">
+    <div class="col-12 col-lg-4">
+      <div class="ms-lg-5">
         <app-suggested></app-suggested>
       </div>
     </div>

@@ -95,22 +95,9 @@ export class MovieDetailsComponent implements OnInit {
   private extractRelevantKeywords(movie: MovieDetails): string[] {
     const keywords: string[] = [];
 
-    // Add genre keywords (most relevant)
     if (movie.Genre && movie.Genre !== 'N/A') {
-      const genres = movie.Genre.split(', ').slice(0, 2); // Take first 2 genres
+      const genres = movie.Genre.split(', ')
       keywords.push(...genres);
-    }
-
-    // Add director if available
-    if (movie.Director && movie.Director !== 'N/A') {
-      const directors = movie.Director.split(', ').slice(0, 1); // Take first director
-      keywords.push(...directors);
-    }
-
-    // Add first actor if available
-    if (movie.Actors && movie.Actors !== 'N/A') {
-      const actors = movie.Actors.split(', ').slice(0, 1); // Take first actor
-      keywords.push(...actors);
     }
 
     return keywords;
